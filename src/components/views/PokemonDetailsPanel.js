@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card } from "./Card";
+import { Card } from "../Card";
 export function PokemonDetailsPanel({ name }) {
   const getPokemonDetails = () => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + name)
