@@ -1,18 +1,13 @@
 import { useState, useEffect, useReducer } from "react";
-import { Button } from "./Button";
-import { loadPokemons, selectPokemon } from "../store/actions";
+import { Button } from "../Button";
+import { loadPokemons, selectPokemon } from "../../store/actions";
 import { PokemonDetailsPanel } from "./PokemonDetailsPanel";
 import { useDispatch, useSelector } from "react-redux";
+import { selectSelectedPokemon, selectPokemonsObj } from "../../store/store";
 
 export function PokemonsPagedList() {
   const pokeApiBaseUrl = "https://pokeapi.co/api/v2/";
 
-  function selectPokemonsObj(state) {
-    return state.pokemonsList;
-  }
-  function selectSelectedPokemon(state) {
-    return state.selectedPokemon;
-  }
   const pokemonsObj = useSelector(selectPokemonsObj);
   const dispatch = useDispatch();
 
@@ -52,12 +47,14 @@ export function PokemonsPagedList() {
             <li
               onClick={() => dispatchSelectedPokemon(selectPokemon(pokemon))}
               key={pokemon.name}
+              className={
+                pokemon.name === selectedPokemon ? "selected" : "no-selected"
+              }
             >
               {pokemon.name}
             </li>
           ))}
         </ul>
-        <PokemonDetailsPanel name={selectedPokemon} />
       </>
     );
   }

@@ -1,30 +1,39 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Card } from "../Card";
-export function PokemonDetailsPanel({ name }) {
+import { selectSelectedPokemon } from "../../store/store";
+
+export function PokemonDetailsPanel() {
+  const selectedPokemon = useSelector(selectSelectedPokemon);
   const getPokemonDetails = () => {
-    fetch("https://pokeapi.co/api/v2/pokemon/" + name)
+    fetch("https://pokeapi.co/api/v2/pokemon/" + selectedPokemon)
       .then((response) => response.json())
       .then((json) => {
         setPokemonDetails(json);
       });
   };
 
-  useEffect(getPokemonDetails, [name]);
+  useEffect(() => {
+    getPokemonDetails();
+    console.log("selectedPokemon=", selectedPokemon);
+  }, [selectedPokemon]);
   const [pokemonDetails, setPokemonDetails] = useState({});
 
   return (
     <div>
       <h2>Pokemon Details Panel</h2>
-      {pokemonDetails.name == null ? (
+      {selectedPokemon == null || pokemonDetails.name == null ? (
         <h2>No pokemon selected</h2>
       ) : (
         <Card>
-          <h3>{pokemonDetails.name}</h3>
+          <h3>{selectedPokemon}</h3>
+          <div className="pokemon-images">
+            <img src={pokemonDetails.sprites.front_default} />
+            <img src={pokemonDetails.sprites.back_default} />
+          </div>
           <p>Height: {pokemonDetails.height}</p>
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Base experience: {pokemonDetails.base_experience}</p>
-          <img src={pokemonDetails.sprites.front_default} />
-          <img src={pokemonDetails.sprites.back_default} />
         </Card>
       )}
     </div>
