@@ -1,0 +1,64 @@
+$base-color: #ffaaaa;
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.selected {
+  font-weight: bold;
+}
+.home {
+  display: flex;
+  justify-content: space-evenly;
+}
+header {
+  background-color: $base-color;
+}
+.link-to-home {
+  position: absolute;
+  top: 0;
+  font-size: 2.5em;
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  margin: 0;
+  padding: 0.3em 0;
+  text-align: center;
+}
+.pokemons-list-panel {
+  padding: 0 1em;
+}
+.pokemons-list {
+  padding: 0;
+  padding: 0 1em;
+}
+.pokemons-list li {
+  list-style: none;
+  padding: 0.1em;
+}
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  background-color: $base-color;
+  padding: 1em;
+  border-radius: 1em;
+}
+footer {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 1em 0;
+  position: absolute;
+  bottom: 0;
+  background-color: $base-color;
+}
+@media (max-width: 500px) {
+  .home {
+    flex-direction: column;
+  }
+}

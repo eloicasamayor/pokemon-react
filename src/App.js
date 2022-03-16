@@ -1,20 +1,27 @@
 import { PokemonsPagedList } from "./components/views/PokemonsPagedList";
-import { HomeView } from "./components/views/HomeView";
+import { Home } from "./components/views/Home";
+import { Pokemon } from "./components/views/Pokemon";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { PokemonDetailsPanel } from "./components/views/PokemonDetailsPanel";
-import { Header } from "./components/Header";
+import { Layout } from "./components/Layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NoPage } from "./components/views/NoPage";
 
-/* setInterval(() => {
-  console.log(store.getState());
-}, 2000); */
+import "./styles/styles.scss";
 
 function App() {
   return (
     <Provider store={store}>
-      <Header />
-
-      <HomeView />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/:name" element={<Pokemon />} />
+            <Route path="*" element={<NoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </Provider>
   );
 }

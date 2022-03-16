@@ -4,7 +4,7 @@ import { Card } from "../Card";
 import { selectSelectedPokemon } from "../../store/store";
 import { MoreInfoLink } from "../MoreInfoLink";
 
-export function PokemonDetailsPanel() {
+export function PokemonDetails() {
   const selectedPokemon = useSelector(selectSelectedPokemon);
   const getPokemonDetails = () => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + selectedPokemon)
@@ -35,7 +35,22 @@ export function PokemonDetailsPanel() {
           <p>Height: {pokemonDetails.height}</p>
           <p>Weight: {pokemonDetails.weight}</p>
           <p>Base experience: {pokemonDetails.base_experience}</p>
-          <MoreInfoLink to={`/${selectedPokemon}`} text="more info" />
+          <div className="abilities">
+            <p>Abilities:</p>
+            <ul>
+              {pokemonDetails.abilities.map((a) => (
+                <li>{a.ability.name}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="moves">
+            <p>Moves:</p>
+            <ul>
+              {pokemonDetails.moves.map((a) => (
+                <li>{a.move.name}</li>
+              ))}
+            </ul>
+          </div>
         </Card>
       )}
     </div>
