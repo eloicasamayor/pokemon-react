@@ -1,7 +1,9 @@
 import { PokemonsPagedList } from "./components/views/PokemonsPagedList";
+import { HomeView } from "./components/views/HomeView";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { PokemonDetailsPanel } from "./components/views/PokemonDetailsPanel";
+import { Header } from "./components/Header";
 
 /* setInterval(() => {
   console.log(store.getState());
@@ -10,8 +12,9 @@ import { PokemonDetailsPanel } from "./components/views/PokemonDetailsPanel";
 function App() {
   return (
     <Provider store={store}>
-      <PokemonsPagedList />
-      <PokemonDetailsPanel />
+      <Header />
+
+      <HomeView />
     </Provider>
   );
 }

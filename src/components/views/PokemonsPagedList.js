@@ -31,7 +31,7 @@ export function PokemonsPagedList() {
   } else {
     return (
       <>
-        <h1>Pokemons List</h1>
+        <h2>Pokemons List</h2>
         <Button
           disabled={pokemonsObj.previous === null}
           onclick={() => setPokemonsListUrl(pokemonsObj.previous)}

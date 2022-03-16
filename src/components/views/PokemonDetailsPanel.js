@@ -21,12 +21,12 @@ export function PokemonDetailsPanel() {
 
   return (
     <div>
-      <h2>Pokemon Details Panel</h2>
+      <h2>Pokemon Details</h2>
       {selectedPokemon == null || pokemonDetails.name == null ? (
         <h2>No pokemon selected</h2>
       ) : (
         <Card>
-          <h3>{selectedPokemon}</h3>
+          <h2>{selectedPokemon}</h2>
           <div className="pokemon-images">
             <img src={pokemonDetails.sprites.front_default} />
             <img src={pokemonDetails.sprites.back_default} />
