@@ -6,16 +6,25 @@ export function PokemonDetailsPanel({ name }) {
       .then((response) => response.json())
       .then((json) => {
         setPokemonDetails(json);
-      })
-      .then(console.log);
+      });
   }, [name]);
   const [pokemonDetails, setPokemonDetails] = useState({});
 
   return (
     <div>
       <h2>Pokemon Details Panel</h2>
-      <h3>{name == null ? "No pokemon selected" : name}</h3>
-      <div>{JSON.stringify(pokemonDetails)}</div>
+      {pokemonDetails.name == null ? (
+        <h2>No pokemon selected</h2>
+      ) : (
+        <>
+          <h3>{pokemonDetails.name}</h3>
+          <p>Height: {pokemonDetails.height}</p>
+          <p>Weight: {pokemonDetails.weight}</p>
+          <p>Base experience: {pokemonDetails.base_experience}</p>
+          <img src={pokemonDetails.sprites.front_default} />
+          <img src={pokemonDetails.sprites.back_default} />
+        </>
+      )}
     </div>
   );
 }

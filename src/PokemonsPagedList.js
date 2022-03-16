@@ -6,6 +6,7 @@ export function PokemonsPagedList() {
   const [pokemonsList, setPokemonsList] = useState([]);
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=20");
   const [selectedPokemon, setSelectedPokemon] = useState("");
+
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
@@ -14,6 +15,7 @@ export function PokemonsPagedList() {
         setPokemonsList(json.results);
       });
   }, [url]);
+
   return (
     <>
       <h1>Pokemons List</h1>
