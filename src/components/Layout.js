@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
+import { Footer } from "./Footer";
 export function Layout() {
   return (
     <>
       <header>
-        <h1>Pokemon app</h1>
+        <img
+          className="pokemon-logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"
+          alt="pokemon logo"
+        />
       </header>
       <Outlet />
-      <footer>
-        Developed by Eloi Casamayor | Info collected from the PokéAPI
-      </footer>
+      <Footer />
     </>
   );
 }

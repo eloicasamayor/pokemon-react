@@ -24,7 +24,9 @@ export function PokemonDetailsPanel() {
     <div>
       <h2>Pokemon Details</h2>
       {selectedPokemon == null || pokemonDetails.name == null ? (
-        <h2>No pokemon selected</h2>
+        <Card>
+          <h2>No pokemon selected</h2>
+        </Card>
       ) : (
         <Card>
           <h2>{selectedPokemon}</h2>

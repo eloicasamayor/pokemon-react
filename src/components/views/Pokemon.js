@@ -4,7 +4,7 @@ export function Pokemon({ name }) {
   return (
     <>
       <Link className="link-to-home" to={"/"}>
-        ⏴
+        🡠
       </Link>
       <PokemonDetails />
     </>
