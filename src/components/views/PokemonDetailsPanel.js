@@ -21,7 +21,7 @@ export function PokemonDetailsPanel() {
   const [pokemonDetails, setPokemonDetails] = useState({});
 
   return (
-    <div>
+    <div className="pokemon-details-col">
       <h2>Pokemon Details</h2>
       {selectedPokemon == null || pokemonDetails.name == null ? (
         <Card>
