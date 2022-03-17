@@ -26,6 +26,7 @@ export function PokemonsPagedList() {
       });
   };
   useEffect(getPokemonsList, [pokemonsListUrl]);
+
   if (pokemonsObj == undefined) {
     return <>No data</>;
   } else {
@@ -34,12 +35,12 @@ export function PokemonsPagedList() {
         <h2>Pokemons List</h2>
         <div className="pagination-controls">
           <Button
-            disabled={pokemonsObj.previous === null}
+            disabled={!pokemonsObj.previous}
             onclick={() => setPokemonsListUrl(pokemonsObj.previous)}
             text="previous"
           />
           <Button
-            disabled={pokemonsObj.next === null}
+            disabled={!pokemonsObj.next}
             onclick={() => setPokemonsListUrl(pokemonsObj.next)}
             text="next"
           />
