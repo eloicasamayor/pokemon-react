@@ -52,11 +52,13 @@ h2 {
   padding: 0 1em;
 }
 .pokemons-list li {
+  cursor: pointer;
   list-style: none;
   padding: 0.1em;
   padding: 0.3em;
   color: $terciary-color;
 }
+
 .pagination-controls {
   display: flex;
   justify-content: space-between;
@@ -65,7 +67,7 @@ h2 {
   box-sizing: border-box;
   background-color: $base-color;
   padding: 1em;
-  border-radius: 1em;
+  box-shadow: 5px 5px #888888;
 }
 footer {
   text-align: center;
@@ -84,6 +86,8 @@ footer a {
 button {
   padding: 10px;
   width: 100px;
+  background-color: $base-color;
+  border: 0;
 }
 .pokemons-list-panel,
 .pokemon-details-col {
@@ -101,6 +105,19 @@ button {
 a {
   text-decoration: none;
   color: $normal-text-color;
+}
+.abilities ul,
+.moves ul {
+  margin: 0;
+  padding: 0;
+}
+.abilities li,
+.moves li {
+  list-style: none;
+  background-color: white;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 10px;
 }
 
 @media (max-width: 500px) {
