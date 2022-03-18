@@ -1,30 +1,29 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../Button";
 import { loadPokemons, selectPokemon } from "../../store/actions";
-import { PokemonDetailsPanel } from "./PokemonDetailsPanel";
-import { useDispatch, useSelector } from "react-redux";
+
 import { selectSelectedPokemon, selectPokemonsObj } from "../../store/store";
+const POKEAPI_BASEURL = "https://pokeapi.co/api/v2/";
 
 export function PokemonsPagedList() {
-  const pokeApiBaseUrl = "https://pokeapi.co/api/v2/";
-
   const pokemonsObj = useSelector(selectPokemonsObj);
   const dispatch = useDispatch();
 
   const [pokemonsListUrl, setPokemonsListUrl] = useState(
-    pokeApiBaseUrl + "pokemon/?limit=20"
+    POKEAPI_BASEURL + "pokemon/?limit=20"
   );
   const selectedPokemon = useSelector(selectSelectedPokemon);
 
   const dispatchSelectedPokemon = useDispatch();
 
-  const getPokemonsList = () => {
+  function getPokemonsList() {
     fetch(pokemonsListUrl)
       .then((response) => response.json())
       .then((pokemonListObj) => {
         dispatch(loadPokemons(pokemonListObj));
       });
-  };
+  }
   useEffect(getPokemonsList, [pokemonsListUrl]);
 
   if (pokemonsObj == undefined) {
