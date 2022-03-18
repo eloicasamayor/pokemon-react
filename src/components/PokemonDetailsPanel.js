@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Card } from "../Card";
-import { selectSelectedPokemon } from "../../store/store";
-import { MoreInfoLink } from "../MoreInfoLink";
+import { Card } from "./Card";
+import { selectSelectedPokemon } from "../store/store";
+import { MoreInfoLink } from "./MoreInfoLink";
 
 export function PokemonDetailsPanel() {
   const selectedPokemon = useSelector(selectSelectedPokemon);
@@ -16,21 +16,19 @@ export function PokemonDetailsPanel() {
 
   useEffect(() => {
     getPokemonDetails();
-    console.log("selectedPokemon=", selectedPokemon);
   }, [selectedPokemon]);
   const [pokemonDetails, setPokemonDetails] = useState({});
 
   return (
     <div className="pokemon-details-col">
-      <h2>Pokemon Details</h2>
       {selectedPokemon == null || pokemonDetails.name == null ? (
         <Card>
-          <h2>No pokemon selected</h2>
+          <h2 className="no-pokemon-selected-text">No pokemon selected</h2>
         </Card>
       ) : (
         <Card>
-          <h2>{selectedPokemon}</h2>
-          <div className="pokemon-images">
+          <h2 className="pokemon-name">{selectedPokemon}</h2>
+          <div className="pokemon-images shadow">
             <img src={pokemonDetails.sprites.front_default} />
             <img src={pokemonDetails.sprites.back_default} />
           </div>

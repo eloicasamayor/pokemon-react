@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer>
+    <footer className="shadow">
       <span>
         Developed by{" "}
         <a href="https://eloicasamayor.github.io/portfolio/" target="_blank">

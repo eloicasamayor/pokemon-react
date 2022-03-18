@@ -22,19 +22,20 @@ export function PokemonDetails() {
 
   return (
     <div>
-      <h2>Pokemon Details</h2>
       {selectedPokemon == null || pokemonDetails.name == null ? (
         <h2>No pokemon selected</h2>
       ) : (
-        <Card>
-          <h2>{selectedPokemon}</h2>
-          <div className="pokemon-images">
+        <div className="pokemon-details-page">
+          <h2 className="pokemon-name">{selectedPokemon}</h2>
+          <div className="pokemon-images shadow">
             <img src={pokemonDetails.sprites.front_default} />
             <img src={pokemonDetails.sprites.back_default} />
           </div>
-          <p>Height: {pokemonDetails.height}</p>
-          <p>Weight: {pokemonDetails.weight}</p>
-          <p>Base experience: {pokemonDetails.base_experience}</p>
+          <div className="pokemon-main-stats shadow">
+            <p>Height: {pokemonDetails.height}</p>
+            <p>Weight: {pokemonDetails.weight}</p>
+            <p>Base experience: {pokemonDetails.base_experience}</p>
+          </div>
           <div className="abilities">
             <p>Abilities:</p>
             <ul>
@@ -51,7 +52,7 @@ export function PokemonDetails() {
               ))}
             </ul>
           </div>
-        </Card>
+        </div>
       )}
     </div>
   );

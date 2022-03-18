@@ -8,7 +8,7 @@ import { NoPage } from "./components/views/NoPage";
 import "./styles/styles.scss";
 import { useMemo } from "react";
 import { loadPokemons } from "./store/actions";
-import { getPokemonsList } from "./components/views/PokemonsPagedList";
+import { getPokemonsList } from "./components/PokemonsPagedList";
 
 function App() {
   const store = useMemo(makeStore, []);

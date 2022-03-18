@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../Button";
-import { loadPokemons, selectPokemon } from "../../store/actions";
+import { Button } from "./Button";
+import { loadPokemons, selectPokemon } from "../store/actions";
 
-import { selectSelectedPokemon, selectPokemonsObj } from "../../store/store";
+import { selectSelectedPokemon, selectPokemonsObj } from "../store/store";
 const POKEAPI_BASEURL = "https://pokeapi.co/api/v2/";
 
 export function PokemonsPagedList() {
@@ -31,7 +31,6 @@ export function PokemonsPagedList() {
   } else {
     return (
       <div className="pokemons-list-panel">
-        <h2>Pokemons List</h2>
         <div className="pagination-controls">
           <Button
             disabled={!pokemonsObj.previous}
@@ -50,7 +49,9 @@ export function PokemonsPagedList() {
               onClick={() => dispatchSelectedPokemon(selectPokemon(pokemon))}
               key={pokemon.name}
               className={
-                pokemon.name === selectedPokemon ? "selected" : "no-selected"
+                pokemon.name === selectedPokemon
+                  ? "selected shadow"
+                  : "no-selected"
               }
             >
               {pokemon.name}
