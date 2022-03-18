@@ -27,6 +27,7 @@ body,
   flex-direction: row-reverse;
   justify-content: center;
   margin-top: 1em;
+  gap: 1em;
 }
 header {
   background-color: $base-color;
@@ -46,7 +47,7 @@ header {
 .pokemon-images {
   height: 200px;
   width: 200px;
-  margin: 2em auto;
+  margin: 1.5em auto 0.2em auto;
   border-radius: 50%;
 
   background-color: white;
@@ -70,7 +71,7 @@ header {
 }
 h2 {
   margin: 0;
-  padding: 0.3em 0;
+  padding: 0;
   text-align: center;
   color: $terciary-color;
 }
@@ -80,14 +81,12 @@ h2 {
   height: 3em;
   padding: 10px 0;
 }
-.pokemons-list-panel {
-  padding: 0 1em;
-}
 .pokemons-list {
-  padding: 0;
+  margin: 0;
   padding: 0;
 }
 .pokemons-list li {
+  background-color: rgba($color: white, $alpha: 0.2);
   text-transform: uppercase;
   font-size: 1.2em;
   text-align: center;
@@ -102,6 +101,7 @@ h2 {
 .pagination-controls {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 .card {
   box-sizing: border-box;
@@ -129,10 +129,13 @@ button {
   background-color: $base-color;
   border: 0;
 }
+.pokemons-list-panel {
+  display: flex;
+  flex-direction: column;
+}
 .pokemons-list-panel,
 .pokemon-details-col {
   min-width: 35%;
-  margin-bottom: 1em;
 }
 .more-info {
   display: block;
@@ -164,5 +167,8 @@ a {
 @media (max-width: 500px) {
   .home {
     flex-direction: column;
+  }
+  .pokemons-list-panel {
+    flex-direction: column-reverse;
   }
 }

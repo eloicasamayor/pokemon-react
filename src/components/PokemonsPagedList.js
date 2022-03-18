@@ -31,18 +31,6 @@ export function PokemonsPagedList() {
   } else {
     return (
       <div className="pokemons-list-panel">
-        <div className="pagination-controls">
-          <Button
-            disabled={!pokemonsObj.previous}
-            onclick={() => setPokemonsListUrl(pokemonsObj.previous)}
-            text="🡐 previous"
-          />
-          <Button
-            disabled={!pokemonsObj.next}
-            onclick={() => setPokemonsListUrl(pokemonsObj.next)}
-            text="next 🡒"
-          />
-        </div>
         <ul className="pokemons-list">
           {pokemonsObj.results.map((pokemon, i) => (
             <li
@@ -58,6 +46,18 @@ export function PokemonsPagedList() {
             </li>
           ))}
         </ul>
+        <div className="pagination-controls">
+          <Button
+            disabled={!pokemonsObj.previous}
+            onclick={() => setPokemonsListUrl(pokemonsObj.previous)}
+            text="🡐 previous"
+          />
+          <Button
+            disabled={!pokemonsObj.next}
+            onclick={() => setPokemonsListUrl(pokemonsObj.next)}
+            text="next 🡒"
+          />
+        </div>
       </div>
     );
   }

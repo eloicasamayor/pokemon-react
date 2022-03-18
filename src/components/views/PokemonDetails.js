@@ -23,7 +23,7 @@ export function PokemonDetails() {
   return (
     <div>
       {selectedPokemon == null || pokemonDetails.name == null ? (
-        <h2>No pokemon selected</h2>
+        <p className="no-pokemon-selected-text">No pokemon selected</p>
       ) : (
         <div className="pokemon-details-page">
           <h2 className="pokemon-name">{selectedPokemon}</h2>
