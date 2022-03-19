@@ -5,8 +5,13 @@ export function Pokemon() {
   console.log("selectedPokemon (from params) = ", params.name);
   return (
     <>
-      <Link className="link-to-home" to={"/"}>
-        🡠
+      <Link
+        className="link-to-home"
+        to={"/"}
+        alt="back to home"
+        title="go back to the home page"
+      >
+        ‹
       </Link>
       <PokemonExtendedDetails name={params.name} />
     </>

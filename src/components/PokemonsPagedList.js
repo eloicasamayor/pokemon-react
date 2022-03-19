@@ -48,12 +48,14 @@ export function PokemonsPagedList() {
           <Button
             disabled={!pokemonsObj.previous}
             onclick={() => setPokemonsListUrl(pokemonsObj.previous)}
-            text="🡐 previous"
+            text="« previous"
+            title="go to the previous page"
           />
           <Button
             disabled={!pokemonsObj.next}
             onclick={() => setPokemonsListUrl(pokemonsObj.next)}
-            text="next 🡒"
+            text="next »"
+            title="go to the next page"
           />
         </div>
       </div>

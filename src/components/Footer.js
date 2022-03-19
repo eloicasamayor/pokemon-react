@@ -3,12 +3,23 @@ export function Footer() {
     <footer className="shadow">
       <span>
         Developed by{" "}
-        <a href="https://eloicasamayor.github.io/portfolio/" target="_blank">
+        <a
+          href="https://eloicasamayor.github.io/portfolio/"
+          target="_blank"
+          title="go to Eloi Casamayor Esteve website"
+        >
           Eloi Casamayor Esteve
         </a>
       </span>
       <span>
-        Works with the <a href="https://pokeapi.co/">PokéAPI</a>
+        Works with the{" "}
+        <a
+          href="https://pokeapi.co/"
+          target="_blank"
+          title="Go to PokeApi website"
+        >
+          PokéAPI
+        </a>
       </span>
     </footer>
   );

@@ -39,7 +39,11 @@ export function PokemonDetailsPanel() {
             <p>Base experience: {pokemonDetails.base_experience}</p>
           </div>
 
-          <MoreInfoLink to={`/${selectedPokemon}`} text="MORE DETAILS" />
+          <MoreInfoLink
+            to={`/${selectedPokemon}`}
+            text="MORE DETAILS"
+            title="See more details about the selected pokemon"
+          />
         </Card>
       )}
     </div>
