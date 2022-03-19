@@ -24,8 +24,14 @@ export function PokemonDetailsPanel() {
       {selectedPokemon == null || pokemonDetails.name == null ? (
         <Card>
           <p className="no-pokemon-selected-text">
-            Select a pokemon in the list
+            Select a pokemon in the list...
+            <br /> to see the details
           </p>
+          <img
+            className="pokeball"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
+            alt="pokeball"
+          ></img>
         </Card>
       ) : (
         <Card>

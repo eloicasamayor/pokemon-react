@@ -26,7 +26,7 @@ export function PokemonExtendedDetails({ name }) {
   const [pokemonDetails, setPokemonDetails] = useState({});
 
   return (
-    <div>
+    <div className="extended-details-bg">
       {selectedPokemon == null || pokemonDetails.name == null ? (
         <p className="no-pokemon-selected-text">No pokemon selected</p>
       ) : (
