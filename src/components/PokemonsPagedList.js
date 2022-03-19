@@ -15,8 +15,6 @@ export function PokemonsPagedList() {
   );
   const selectedPokemon = useSelector(selectSelectedPokemon);
 
-  const dispatchSelectedPokemon = useDispatch();
-
   function getPokemonsList() {
     fetch(pokemonsListUrl)
       .then((response) => response.json())
@@ -34,7 +32,7 @@ export function PokemonsPagedList() {
         <ul className="pokemons-list">
           {pokemonsObj.results.map((pokemon, i) => (
             <li
-              onClick={() => dispatchSelectedPokemon(selectPokemon(pokemon))}
+              onClick={() => dispatch(selectPokemon(pokemon.name))}
               key={pokemon.name}
               className={
                 pokemon.name === selectedPokemon

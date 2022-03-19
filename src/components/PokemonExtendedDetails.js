@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Card } from "../Card";
-import { selectSelectedPokemon } from "../../store/store";
-import { MoreInfoLink } from "../MoreInfoLink";
+import { Card } from "./Card";
+import { useDispatch } from "react-redux";
+import { selectSelectedPokemon } from "../store/store";
+import { MoreInfoLink } from "./MoreInfoLink";
+import { selectPokemon } from "../store/actions";
+export function PokemonExtendedDetails({ name }) {
+  const dispatch = useDispatch();
 
-export function PokemonDetails() {
   const selectedPokemon = useSelector(selectSelectedPokemon);
   const getPokemonDetails = () => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + selectedPokemon)
@@ -15,8 +18,10 @@ export function PokemonDetails() {
   };
 
   useEffect(() => {
+    if (selectedPokemon === "") {
+      dispatch(selectPokemon(name));
+    }
     getPokemonDetails();
-    console.log("selectedPokemon=", selectedPokemon);
   }, [selectedPokemon]);
   const [pokemonDetails, setPokemonDetails] = useState({});
 
@@ -27,11 +32,10 @@ export function PokemonDetails() {
       ) : (
         <div className="pokemon-details-page">
           <h2 className="pokemon-name">{selectedPokemon}</h2>
-          <div className="pokemon-images shadow">
-            <img src={pokemonDetails.sprites.front_default} />
-            <img src={pokemonDetails.sprites.back_default} />
+          <div className="pokemon-images ">
+            <img src={pokemonDetails.sprites.other.home.front_default} />
           </div>
-          <div className="pokemon-main-stats shadow">
+          <div className="pokemon-main-stats">
             <p>Height: {pokemonDetails.height}</p>
             <p>Weight: {pokemonDetails.weight}</p>
             <p>Base experience: {pokemonDetails.base_experience}</p>
@@ -40,7 +44,7 @@ export function PokemonDetails() {
             <p>Abilities:</p>
             <ul>
               {pokemonDetails.abilities.map((a) => (
-                <li>{a.ability.name}</li>
+                <li key={a.ability.name}>{a.ability.name}</li>
               ))}
             </ul>
           </div>
@@ -48,7 +52,7 @@ export function PokemonDetails() {
             <p>Moves:</p>
             <ul>
               {pokemonDetails.moves.map((a) => (
-                <li>{a.move.name}</li>
+                <li key={a.move.name}>{a.move.name}</li>
               ))}
             </ul>
           </div>

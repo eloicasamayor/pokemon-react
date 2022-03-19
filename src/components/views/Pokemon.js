@@ -1,12 +1,14 @@
-import { PokemonDetails } from "./PokemonDetails";
-import { Link } from "react-router-dom";
-export function Pokemon({ name }) {
+import { PokemonExtendedDetails } from "../PokemonExtendedDetails";
+import { Link, useParams } from "react-router-dom";
+export function Pokemon() {
+  const params = useParams();
+  console.log("selectedPokemon (from params) = ", params.name);
   return (
     <>
       <Link className="link-to-home" to={"/"}>
         🡠
       </Link>
-      <PokemonDetails />
+      <PokemonExtendedDetails name={params.name} />
     </>
   );
 }

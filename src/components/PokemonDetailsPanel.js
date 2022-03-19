@@ -30,14 +30,16 @@ export function PokemonDetailsPanel() {
       ) : (
         <Card>
           <h2 className="pokemon-name">{selectedPokemon}</h2>
-          <div className="pokemon-images shadow">
-            <img src={pokemonDetails.sprites.front_default} />
-            <img src={pokemonDetails.sprites.back_default} />
+          <div className="pokemon-images ">
+            <img src={pokemonDetails.sprites.other.home.front_default} />
           </div>
-          <p>Height: {pokemonDetails.height}</p>
-          <p>Weight: {pokemonDetails.weight}</p>
-          <p>Base experience: {pokemonDetails.base_experience}</p>
-          <MoreInfoLink to={`/${selectedPokemon}`} text="more info" />
+          <div className="pokemon-main-stats">
+            <p>Height: {pokemonDetails.height}</p>
+            <p>Weight: {pokemonDetails.weight}</p>
+            <p>Base experience: {pokemonDetails.base_experience}</p>
+          </div>
+
+          <MoreInfoLink to={`/${selectedPokemon}`} text="MORE DETAILS" />
         </Card>
       )}
     </div>
