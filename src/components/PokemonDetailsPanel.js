@@ -40,6 +40,7 @@ export function PokemonDetailsPanel() {
           </div>
 
           <MoreInfoLink
+            data-testid="more-details-btn"
             to={`/${selectedPokemon}`}
             text="MORE DETAILS"
             title="See more details about the selected pokemon"
