@@ -1,24 +1,26 @@
+import { useTranslation } from "react-i18next";
 export function Footer() {
+  const { t, i18n } = useTranslation();
   return (
     <footer className="shadow">
       <span>
-        Developed by{" "}
+        {t("footer.part1")}{" "}
         <a
           href="https://eloicasamayor.github.io/portfolio/"
           target="_blank"
           rel="noreferrer"
-          title="go to Eloi Casamayor Esteve website"
+          title="Eloi Casamayor Esteve Portfolio"
         >
           Eloi Casamayor Esteve
         </a>
       </span>
       <span>
-        Works with{" "}
+        {t("footer.part2")}{" "}
         <a
           href="https://pokeapi.co/"
           target="_blank"
           rel="noreferrer"
-          title="Go to PokeApi website"
+          title="pokeapi.co"
         >
           PokéAPI
         </a>

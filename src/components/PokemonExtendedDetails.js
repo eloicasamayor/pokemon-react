@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { selectSelectedPokemon } from "../store/store";
 import { selectPokemon } from "../store/actions";
+import { useTranslation } from "react-i18next";
 export function PokemonExtendedDetails({ name }) {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
   const selectedPokemon = useSelector(selectSelectedPokemon);
@@ -37,12 +39,18 @@ export function PokemonExtendedDetails({ name }) {
             />
           </div>
           <div className="pokemon-main-stats">
-            <p>Height: {pokemonDetails.height}</p>
-            <p>Weight: {pokemonDetails.weight}</p>
-            <p>Base experience: {pokemonDetails.base_experience}</p>
+            <p>
+              {t("pokemonstats.part1")}: {pokemonDetails.height}
+            </p>
+            <p>
+              {t("pokemonstats.part2")}: {pokemonDetails.weight}
+            </p>
+            <p>
+              {t("pokemonstats.part3")}: {pokemonDetails.base_experience}
+            </p>
           </div>
           <div className="abilities">
-            <p>Abilities:</p>
+            <p>{t("pokemonstats.part4")}:</p>
             <ul>
               {pokemonDetails.abilities.map((a) => (
                 <li key={a.ability.name}>{a.ability.name}</li>
@@ -50,7 +58,7 @@ export function PokemonExtendedDetails({ name }) {
             </ul>
           </div>
           <div className="moves">
-            <p>Moves:</p>
+            <p>{t("pokemonstats.part5")}:</p>
             <ul>
               {pokemonDetails.moves.map((a) => (
                 <li key={a.move.name}>{a.move.name}</li>

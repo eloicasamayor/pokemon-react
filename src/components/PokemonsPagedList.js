@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./Button";
 import { loadPokemons, selectPokemon } from "../store/actions";
-
+import { useTranslation } from "react-i18next";
 import { selectSelectedPokemon, selectPokemonsObj } from "../store/store";
 const POKEAPI_BASEURL = "https://pokeapi.co/api/v2/";
 
 export function PokemonsPagedList() {
+  const { t, i18n } = useTranslation();
   const pokemonsObj = useSelector(selectPokemonsObj);
   const dispatch = useDispatch();
 
@@ -48,14 +49,14 @@ export function PokemonsPagedList() {
           <Button
             disabled={!pokemonsObj.previous}
             onClick={() => setPokemonsListUrl(pokemonsObj.previous)}
-            text="« previous"
-            title="go to the previous page"
+            text={"« " + t("buttons.prev")}
+            title={t("buttons.prevtitle")}
           />
           <Button
             disabled={!pokemonsObj.next}
             onClick={() => setPokemonsListUrl(pokemonsObj.next)}
-            text="next »"
-            title="go to the next page"
+            text={t("buttons.next") + " »"}
+            title={t("buttons.nexttitle")}
           />
         </div>
       </div>

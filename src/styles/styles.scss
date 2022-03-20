@@ -15,6 +15,16 @@ body,
   background-color: #e9caca;
   position: relative;
 }
+.language-switcher {
+  display: block;
+  float: right;
+  margin-top: -3em;
+}
+.language-switcher button {
+  padding: 15px 2px;
+  width: 60px;
+  font-size: 0.7em;
+}
 .pokemons-list li.selected {
   font-weight: bold;
   background-color: $base-color-selected;
@@ -228,6 +238,11 @@ a {
   border-radius: 20px;
 }
 @media (max-width: 700px) {
+  .pokeball {
+    width: 250px;
+    display: block;
+    margin: auto;
+  }
   .home {
     gap: 0.3em;
   }
@@ -240,6 +255,16 @@ a {
 }
 
 @media (max-width: 500px) {
+  .link-to-home {
+    top: -6px;
+  }
+  .pokemon-logo {
+    float: left;
+    margin-left: 100px;
+  }
+  .language-switcher {
+    margin-top: 0;
+  }
   footer {
     padding: 0.8em 0;
     font-size: 0.8em;
