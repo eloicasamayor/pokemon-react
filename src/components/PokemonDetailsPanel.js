@@ -31,13 +31,16 @@ export function PokemonDetailsPanel() {
             className="pokeball"
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg"
             alt="pokeball"
-          ></img>
+          />
         </Card>
       ) : (
         <Card>
           <h2 className="pokemon-name">{selectedPokemon}</h2>
           <div className="pokemon-images ">
-            <img src={pokemonDetails.sprites.other.home.front_default} />
+            <img
+              src={pokemonDetails.sprites.other.home.front_default}
+              alt={selectedPokemon + "image"}
+            />
           </div>
           <div className="pokemon-main-stats">
             <p>Height: {pokemonDetails.height}</p>

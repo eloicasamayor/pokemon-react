@@ -103,10 +103,16 @@ header {
   z-index: 2;
   line-height: 0.4em;
   top: 5px;
-  left: 15px;
+  left: 0px;
   font-size: 5em;
   text-decoration: none;
   color: white;
+}
+.link-to-home div {
+  height: 60px;
+  width: 60px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .pokemon-logo {
@@ -234,12 +240,20 @@ a {
 }
 
 @media (max-width: 500px) {
+  .pokemon-name {
+    font-size: 2.2em;
+  }
+  .pokemon-logo {
+    height: 2.2em;
+    padding: 5px 0;
+  }
   button {
     padding: 0.8em;
   }
   .home {
     flex-direction: column;
-    margin-top: 4.5em;
+    margin-top: 3.2em;
+    padding-bottom: 3.2em;
   }
   .pokemons-list-panel {
     flex-direction: column-reverse;
@@ -274,9 +288,15 @@ a {
     margin-bottom: 0.3em;
   }
   .pokemon-main-stats p {
-    padding: 0.3em;
+    padding: 0.3em 0.8em;
+  }
+  .pokemon-main-stats {
+    display: flex;
+    margin-top: 1em;
+    justify-content: space-between;
   }
   .more-info {
+    padding: 8px;
     margin: 0;
   }
 }

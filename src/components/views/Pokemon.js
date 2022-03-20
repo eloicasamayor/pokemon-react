@@ -10,7 +10,7 @@ export function Pokemon() {
         alt="back to home"
         title="go back to the home page"
       >
-        ‹
+        <div>{"‹"}</div>
       </Link>
       <PokemonExtendedDetails name={params.name} />
     </>

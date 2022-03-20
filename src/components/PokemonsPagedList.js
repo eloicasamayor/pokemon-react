@@ -24,7 +24,7 @@ export function PokemonsPagedList() {
   }
   useEffect(getPokemonsList, [pokemonsListUrl]);
 
-  if (pokemonsObj == undefined) {
+  if (!pokemonsObj) {
     return <>No data</>;
   } else {
     return (

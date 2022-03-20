@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Card } from "./Card";
 import { useDispatch } from "react-redux";
 import { selectSelectedPokemon } from "../store/store";
-import { MoreInfoLink } from "./MoreInfoLink";
 import { selectPokemon } from "../store/actions";
 export function PokemonExtendedDetails({ name }) {
   const dispatch = useDispatch();
@@ -33,7 +31,10 @@ export function PokemonExtendedDetails({ name }) {
         <div className="pokemon-details-page">
           <h2 className="pokemon-name">{selectedPokemon}</h2>
           <div className="pokemon-images ">
-            <img src={pokemonDetails.sprites.other.home.front_default} />
+            <img
+              src={pokemonDetails.sprites.other.home.front_default}
+              alt={selectedPokemon + "image"}
+            />
           </div>
           <div className="pokemon-main-stats">
             <p>Height: {pokemonDetails.height}</p>

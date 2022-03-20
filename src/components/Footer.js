@@ -6,6 +6,7 @@ export function Footer() {
         <a
           href="https://eloicasamayor.github.io/portfolio/"
           target="_blank"
+          rel="noreferrer"
           title="go to Eloi Casamayor Esteve website"
         >
           Eloi Casamayor Esteve
@@ -16,6 +17,7 @@ export function Footer() {
         <a
           href="https://pokeapi.co/"
           target="_blank"
+          rel="noreferrer"
           title="Go to PokeApi website"
         >
           PokéAPI
