@@ -240,6 +240,11 @@ a {
 }
 
 @media (max-width: 500px) {
+  footer {
+    padding: 0.8em 0;
+    font-size: 0.8em;
+    gap: 1em;
+  }
   .pokemon-name {
     font-size: 2.2em;
   }

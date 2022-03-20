@@ -13,7 +13,7 @@ export function Footer() {
         </a>
       </span>
       <span>
-        Works with the{" "}
+        Works with{" "}
         <a
           href="https://pokeapi.co/"
           target="_blank"
