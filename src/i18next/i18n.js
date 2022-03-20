@@ -38,6 +38,7 @@ i18n
             moredetails: "More details",
             gotohome: "Go back to the home page",
             moredetailstitle: "See more details about the selected pokemon",
+            selectpokemon: "SELECT A POKEMON IN THE LIST...TO SEE THE DETAILS",
           },
         },
       },
@@ -62,6 +63,8 @@ i18n
             moredetails: "Mas detalles",
             gotohome: "Volver a la página de inicio",
             moredetailstitle: "Ver mas detalles sobre el pokémon seleccionado",
+            selectpokemon:
+              "SELECCIONA UN POKEMON DE LA LISTA... PARA VER SUS DETALLES",
           },
         },
       },
@@ -86,6 +89,8 @@ i18n
             moredetails: "Més detalls",
             gotohome: "Tornar a la pàgina d'inici",
             moredetailstitle: "Veure més detalls sobre el pokémon seleccionat",
+            selectpokemon:
+              "SELECCIONA UN POKEMON DE LA LLISTA... PER A VEURE ELS SEUS DETALLS",
           },
         },
       },
