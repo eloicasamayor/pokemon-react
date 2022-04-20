@@ -1,14 +1,14 @@
-import { createStore, combineReducers } from "redux";
-import { reducePokemons, reducerSelectedPokemon } from "./reducers";
-
-export function selectPokemonsObj(state) {
-  return state.pokemonsList;
-}
-export function selectSelectedPokemon(state) {
-  return state.selectedPokemon;
-}
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import {
+  reducePokemons,
+  reducerSelectedPokemon,
+  reducerSelectedPokemonDetails,
+} from "./reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { pokemonsMiddleware } from "./middleware";
 
 const reducer = combineReducers({
+  pokemonDetails: reducerSelectedPokemonDetails,
   pokemonsList: reducePokemons,
   selectedPokemon: reducerSelectedPokemon,
 });
@@ -16,5 +16,5 @@ const reducer = combineReducers({
 export const makeStore = () =>
   createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeWithDevTools(applyMiddleware(pokemonsMiddleware))
   );

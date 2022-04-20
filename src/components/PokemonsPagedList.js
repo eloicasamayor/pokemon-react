@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./Button";
-import { loadPokemons, selectPokemon } from "../store/actions";
+import { selectSelectedPokemon, selectPokemonsObj } from "../store/selectors";
+import { loadPokemons, requestPokemonDetails } from "../store/actions";
 import { useTranslation } from "react-i18next";
-import { selectSelectedPokemon, selectPokemonsObj } from "../store/store";
+
 const POKEAPI_BASEURL = "https://pokeapi.co/api/v2/";
 
 export function PokemonsPagedList() {
@@ -33,8 +34,13 @@ export function PokemonsPagedList() {
         <ul className="pokemons-list">
           {pokemonsObj.results.map((pokemon, i) => (
             <li
-              onClick={() => dispatch(selectPokemon(pokemon.name))}
-              key={pokemon.name}
+              onClick={
+                () =>
+                  dispatch(
+                    requestPokemonDetails(pokemon.name)
+                  ) /* dispatch(selectPokemon(pokemon.name)) */
+              }
+              key={i}
               className={
                 pokemon.name === selectedPokemon
                   ? "selected shadow"
