@@ -9,3 +9,7 @@ export function selectPokemonsObj(state) {
 export function selectSelectedPokemon(state) {
   return state.selectedPokemon;
 }
+
+export function selectLoading(state) {
+  return state.loading;
+}

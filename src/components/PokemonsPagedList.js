@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./Button";
-import {
-  selectSelectedPokemon,
-  selectPokemonsObj,
-  selectPokemonDetails,
-} from "../store/selectors";
+import { selectPokemonsObj, selectPokemonDetails } from "../store/selectors";
 import { loadPokemons, requestPokemonDetails } from "../store/actions";
 import { useTranslation } from "react-i18next";
 
@@ -19,7 +15,6 @@ export function PokemonsPagedList() {
   const [pokemonsListUrl, setPokemonsListUrl] = useState(
     POKEAPI_BASEURL + "pokemon/?limit=20"
   );
-  const selectedPokemon = useSelector(selectSelectedPokemon);
   const pokemonDetails = useSelector(selectPokemonDetails);
 
   function getPokemonsList() {

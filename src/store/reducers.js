@@ -1,5 +1,9 @@
-import { LOAD_POKEMONS, SET_POKEMONS_DETAILS } from "./actions";
-import { SELECT_POKEMON } from "./actions";
+import {
+  LOAD_POKEMONS,
+  SET_LOADING,
+  SET_POKEMONS_DETAILS,
+  SELECT_POKEMON,
+} from "./actions";
 
 const initialState = { results: [] };
 export function reducePokemons(state = initialState, action) {
@@ -28,6 +32,15 @@ export function reducerSelectedPokemonDetails(
   switch (action.type) {
     case SET_POKEMONS_DETAILS:
       return action.pokemonDetails;
+    default:
+      return state;
+  }
+}
+
+export function reducerLoading(state = false, action) {
+  switch (action.type) {
+    case SET_LOADING:
+      return action.loading;
     default:
       return state;
   }

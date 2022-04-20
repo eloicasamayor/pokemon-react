@@ -30,3 +30,11 @@ export function setPokemonDetails(pokemonDetails) {
     pokemonDetails: pokemonDetails,
   };
 }
+
+export const SET_LOADING = "SET_LOADING";
+export function setLoading(loading) {
+  return {
+    type: SET_LOADING,
+    loading: loading,
+  };
+}
