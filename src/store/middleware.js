@@ -2,6 +2,8 @@ import {
   REQUEST_POKEMONS_DETAILS,
   setPokemonDetails,
   setLoading,
+  SEARCH_POKEMONS,
+  setSearchResults,
 } from "./actions";
 import { getPokemonDetails } from "./api";
 
@@ -16,6 +18,18 @@ export const pokemonsMiddleware = (store) => (next) => async (action) => {
       store.dispatch(setPokemonDetails(details));
     }
     store.dispatch(setLoading(false));
+  }
+  if (action.type === SEARCH_POKEMONS) {
+    const state = store.getState();
+    const pokemonsList = state.pokemonsList.results;
+    console.log("state", state);
+    console.log("pokemonList", pokemonsList);
+    let results = pokemonsList.filter(
+      (pokemon) => pokemon.name !== action.query
+    );
+    console.log("results", results);
+    if (results === undefined) results = "";
+    store.dispatch(setSearchResults(results));
   }
 };
 

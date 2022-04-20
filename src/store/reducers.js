@@ -3,6 +3,7 @@ import {
   SET_LOADING,
   SET_POKEMONS_DETAILS,
   SELECT_POKEMON,
+  SET_SEARCH_RESULTS,
 } from "./actions";
 
 const initialState = { results: [] };
@@ -41,6 +42,15 @@ export function reducerLoading(state = false, action) {
   switch (action.type) {
     case SET_LOADING:
       return action.loading;
+    default:
+      return state;
+  }
+}
+
+export function reducerSearchResults(state = {}, action) {
+  switch (action.type) {
+    case SET_SEARCH_RESULTS:
+      return action.searchResults;
     default:
       return state;
   }

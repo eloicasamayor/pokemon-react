@@ -13,3 +13,7 @@ export function selectSelectedPokemon(state) {
 export function selectLoading(state) {
   return state.loading;
 }
+
+export function selectSearchResults(state) {
+  return state.searchResults;
+}

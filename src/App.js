@@ -1,5 +1,4 @@
-import { Home } from "./components/views/Home";
-import { Pokemon } from "./components/views/Pokemon";
+import { Home, Pokemon, SearchPage } from "./components/views";
 import { makeStore } from "./store/store";
 import { Provider } from "react-redux";
 import { Layout } from "./components/Layout";
@@ -19,6 +18,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/:name" element={<Pokemon />} />
             <Route path="/*" element={<NoPage />} />
+            <Route path="/search" element={<SearchPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

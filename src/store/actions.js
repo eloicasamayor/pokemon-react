@@ -38,3 +38,20 @@ export function setLoading(loading) {
     loading: loading,
   };
 }
+
+export const SEARCH_POKEMONS = "SEARCH_POKEMONS";
+export function searchPokemons(query) {
+  console.log("query:", query);
+  return {
+    type: SEARCH_POKEMONS,
+    query: query,
+  };
+}
+
+export const SET_SEARCH_RESULTS = "SET_SEARCH_RESULTS";
+export function setSearchResults(results) {
+  return {
+    type: SET_SEARCH_RESULTS,
+    results: results,
+  };
+}
