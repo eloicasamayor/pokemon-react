@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./Button";
-import { selectSelectedPokemon, selectPokemonsObj } from "../store/selectors";
+import {
+  selectSelectedPokemon,
+  selectPokemonsObj,
+  selectPokemonDetails,
+} from "../store/selectors";
 import { loadPokemons, requestPokemonDetails } from "../store/actions";
 import { useTranslation } from "react-i18next";
 
@@ -16,6 +20,7 @@ export function PokemonsPagedList() {
     POKEAPI_BASEURL + "pokemon/?limit=20"
   );
   const selectedPokemon = useSelector(selectSelectedPokemon);
+  const pokemonDetails = useSelector(selectPokemonDetails);
 
   function getPokemonsList() {
     fetch(pokemonsListUrl)
@@ -42,7 +47,7 @@ export function PokemonsPagedList() {
               }
               key={i}
               className={
-                pokemon.name === selectedPokemon
+                pokemon.name.toLowerCase() === pokemonDetails.name
                   ? "selected shadow"
                   : "no-selected"
               }

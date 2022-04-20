@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Card } from "./Card";
-import {
-  selectSelectedPokemon,
-  selectPokemonDetails,
-} from "../store/selectors";
+import { selectPokemonDetails } from "../store/selectors";
 import { MoreInfoLink } from "./MoreInfoLink";
 import { useTranslation } from "react-i18next";
 export function PokemonDetailsPanel() {
