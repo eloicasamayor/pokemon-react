@@ -52,6 +52,21 @@ export const SET_SEARCH_RESULTS = "SET_SEARCH_RESULTS";
 export function setSearchResults(results) {
   return {
     type: SET_SEARCH_RESULTS,
-    results: results,
+    searchResults: results,
+  };
+}
+
+export const REQUEST_ALL_POKEMONS = "REQUEST_ALL_POKEMONS";
+export function requestAllPokemons() {
+  return {
+    type: REQUEST_ALL_POKEMONS,
+    all: true,
+  };
+}
+export const SET_ALL_POKEMONS = "SET_ALL_POKEMONS";
+export function setAllPokemons(allPokemons) {
+  return {
+    type: SET_ALL_POKEMONS,
+    allPokemons: allPokemons,
   };
 }

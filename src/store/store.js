@@ -5,6 +5,7 @@ import {
   reducerSelectedPokemonDetails,
   reducerLoading,
   reducerSearchResults,
+  reducerAllPokemons,
 } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { pokemonsMiddleware } from "./middleware";
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   pokemonDetails: reducerSelectedPokemonDetails,
   pokemonsList: reducePokemons,
   selectedPokemon: reducerSelectedPokemon,
+  allPokemons: reducerAllPokemons,
 });
 
 export const makeStore = () =>

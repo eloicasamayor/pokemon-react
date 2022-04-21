@@ -1,11 +1,13 @@
 import {
   REQUEST_POKEMONS_DETAILS,
+  REQUEST_ALL_POKEMONS,
+  setAllPokemons,
   setPokemonDetails,
   setLoading,
   SEARCH_POKEMONS,
   setSearchResults,
 } from "./actions";
-import { getPokemonDetails } from "./api";
+import { getAllPokemons, getPokemonDetails } from "./api";
 
 export const pokemonsMiddleware = (store) => (next) => async (action) => {
   next(action);
@@ -21,15 +23,26 @@ export const pokemonsMiddleware = (store) => (next) => async (action) => {
   }
   if (action.type === SEARCH_POKEMONS) {
     const state = store.getState();
-    const pokemonsList = state.pokemonsList.results;
-    console.log("state", state);
-    console.log("pokemonList", pokemonsList);
-    let results = pokemonsList.filter(
-      (pokemon) => pokemon.name !== action.query
-    );
-    console.log("results", results);
+    const allPokemons = state.allPokemons.results;
+    let results = {};
+    if (state.query !== "") {
+      results = allPokemons.filter((pokemon) =>
+        pokemon.name.includes(action.query)
+      );
+    }
+
     if (results === undefined) results = "";
     store.dispatch(setSearchResults(results));
+  }
+  if (action.type === REQUEST_ALL_POKEMONS) {
+    store.dispatch(setLoading(true));
+    const allPokemons = await getAllPokemons();
+    if (isEmpty(allPokemons) === true) {
+      store.dispatch(setAllPokemons(null));
+    } else {
+      store.dispatch(setAllPokemons(allPokemons));
+    }
+    store.dispatch(setLoading(false));
   }
 };
 

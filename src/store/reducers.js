@@ -4,6 +4,7 @@ import {
   SET_POKEMONS_DETAILS,
   SELECT_POKEMON,
   SET_SEARCH_RESULTS,
+  SET_ALL_POKEMONS,
 } from "./actions";
 
 const initialState = { results: [] };
@@ -51,6 +52,15 @@ export function reducerSearchResults(state = {}, action) {
   switch (action.type) {
     case SET_SEARCH_RESULTS:
       return action.searchResults;
+    default:
+      return state;
+  }
+}
+
+export function reducerAllPokemons(state = {}, action) {
+  switch (action.type) {
+    case SET_ALL_POKEMONS:
+      return action.allPokemons;
     default:
       return state;
   }
