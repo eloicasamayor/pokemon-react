@@ -20,7 +20,6 @@ export function SearchPage() {
   const search = (e) => {
     e.preventDefault();
     dispatch(searchPokemons(inputRef.current.value));
-    console.log("searching" + inputRef.current.value);
   };
   return (
     <>
@@ -32,12 +31,17 @@ export function SearchPage() {
       >
         <div>{"‹"}</div>
       </Link>
-      <div className="home">
+      <div className="search-page">
         <form onSubmit={(e) => search(e)}>
-          <input type="text" onChange={(e) => search(e)} ref={inputRef}></input>
+          <input
+            type="text"
+            onChange={(e) => search(e)}
+            ref={inputRef}
+            placeholder="search a pokemon"
+          ></input>
         </form>
         {!isEmpty(searchResults) && (
-          <ul>
+          <ul className="pokemons-list">
             {searchResults.map((pokemon, i) => (
               <Link to={`/${pokemon.name}`}>
                 <li key={i}>{pokemon.name}</li>

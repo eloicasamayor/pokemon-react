@@ -16,7 +16,6 @@ export function selectPokemon(pokemon) {
 
 export const REQUEST_POKEMONS_DETAILS = "REQUEST_POKEMONS_DETAILS";
 export function requestPokemonDetails(pokemonName) {
-  console.log("requestSelectedPokemonDetails action de ", pokemonName);
   return {
     type: REQUEST_POKEMONS_DETAILS,
     pokemonName: pokemonName,

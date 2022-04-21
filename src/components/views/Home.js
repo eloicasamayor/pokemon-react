@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 
 export function Home() {
   return (
-    <div className="home">
-      <Link to="/search">🔍</Link>
-      <PokemonDetailsPanel />
-      <PokemonsPagedList />
-    </div>
+    <>
+      <Link to="/search" className="link-to-search">
+        🔍
+      </Link>
+      <div className="home">
+        <PokemonDetailsPanel />
+        <PokemonsPagedList />
+      </div>
+    </>
   );
 }

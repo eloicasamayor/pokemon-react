@@ -34,12 +34,7 @@ export function PokemonsPagedList() {
         <ul className="pokemons-list">
           {pokemonsObj.results.map((pokemon, i) => (
             <li
-              onClick={
-                () =>
-                  dispatch(
-                    requestPokemonDetails(pokemon.name)
-                  ) /* dispatch(selectPokemon(pokemon.name)) */
-              }
+              onClick={() => dispatch(requestPokemonDetails(pokemon.name))}
               key={i}
               className={
                 pokemon.name.toLowerCase() === pokemonDetails.name
