@@ -1,32 +1,27 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "./Button";
-import { selectPokemonsObj, selectPokemonDetails } from "../store/selectors";
-import { loadPokemons, requestPokemonDetails } from "../store/actions";
+import { selectPokemonDetails, selectPokemonsList } from "../store/selectors";
+import {
+  loadPokemons,
+  requestPokemonDetails,
+  requestPokemonsList,
+} from "../store/actions";
 import { useTranslation } from "react-i18next";
+import { isEmpty } from "../store/middleware";
 
 const POKEAPI_BASEURL = "https://pokeapi.co/api/v2/";
 
 export function PokemonsPagedList() {
   const { t, i18n } = useTranslation();
-  const pokemonsObj = useSelector(selectPokemonsObj);
-  const dispatch = useDispatch();
 
-  const [pokemonsListUrl, setPokemonsListUrl] = useState(
-    POKEAPI_BASEURL + "pokemon/?limit=20"
-  );
+  const dispatch = useDispatch();
+  const pokemonsObj = useSelector(selectPokemonsList);
   const pokemonDetails = useSelector(selectPokemonDetails);
 
-  function getPokemonsList() {
-    fetch(pokemonsListUrl)
-      .then((response) => response.json())
-      .then((pokemonListObj) => {
-        dispatch(loadPokemons(pokemonListObj));
-      });
-  }
-  useEffect(getPokemonsList, [pokemonsListUrl]);
+  useEffect(() => dispatch(requestPokemonsList()), []);
 
-  if (!pokemonsObj) {
+  if (!pokemonsObj || isEmpty(pokemonsObj)) {
     return <>No data</>;
   } else {
     return (
@@ -49,13 +44,13 @@ export function PokemonsPagedList() {
         <div className="pagination-controls">
           <Button
             disabled={!pokemonsObj.previous}
-            onClick={() => setPokemonsListUrl(pokemonsObj.previous)}
+            onClick={() => dispatch(requestPokemonsList(pokemonsObj.previous))}
             text={"« " + t("buttons.prev")}
             title={t("buttons.prevtitle")}
           />
           <Button
             disabled={!pokemonsObj.next}
-            onClick={() => setPokemonsListUrl(pokemonsObj.next)}
+            onClick={() => dispatch(requestPokemonsList(pokemonsObj.next))}
             text={t("buttons.next") + " »"}
             title={t("buttons.nexttitle")}
           />

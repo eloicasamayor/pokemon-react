@@ -14,6 +14,7 @@ export function PokemonDetailsPanel() {
       {loading ? (
         <Card>
           <p className="no-pokemon-selected-text">loading...</p>
+          <div className="pokemon-images"></div>
         </Card>
       ) : (
         <>

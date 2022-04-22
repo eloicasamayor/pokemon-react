@@ -41,13 +41,15 @@ export function SearchPage() {
           ></input>
         </form>
         {!isEmpty(searchResults) && (
-          <ul className="pokemons-list">
-            {searchResults.map((pokemon, i) => (
-              <Link to={`/${pokemon.name}`}>
-                <li key={i}>{pokemon.name}</li>
-              </Link>
-            ))}
-          </ul>
+          <div className="search-results-list">
+            <ul className="pokemons-list">
+              {searchResults.map((pokemon, i) => (
+                <Link to={`/${pokemon.name}`}>
+                  <li key={i}>{pokemon.name}</li>
+                </Link>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </>

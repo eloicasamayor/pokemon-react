@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { selectPokemon, requestPokemonDetails } from "../store/actions";
+import { requestPokemonDetails } from "../store/actions";
 import { selectLoading, selectPokemonDetails } from "../store/selectors";
 import { useTranslation } from "react-i18next";
 import { isEmpty } from "../store/middleware";

@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import {
-  reducePokemons,
-  reducerSelectedPokemon,
+  reducePokemonsList,
   reducerSelectedPokemonDetails,
   reducerLoading,
   reducerSearchResults,
@@ -14,8 +13,7 @@ const reducer = combineReducers({
   loading: reducerLoading,
   searchResults: reducerSearchResults,
   pokemonDetails: reducerSelectedPokemonDetails,
-  pokemonsList: reducePokemons,
-  selectedPokemon: reducerSelectedPokemon,
+  pokemonsList: reducePokemonsList,
   allPokemons: reducerAllPokemons,
 });
 

@@ -33,24 +33,32 @@ body,
 .shadow {
   box-shadow: 1px 1px #5a5a5a;
 }
-.home,
-.search-page {
+.home {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   margin-top: 5em;
   gap: 1em;
 }
+.search-page {
+  margin-top: 5em;
+}
+.search-results-list {
+  min-width: 400px;
+}
 .search-page > form {
   box-sizing: border-box;
   padding: 1em;
   width: 100%;
+  text-align: center;
 }
 .search-page > form > input[type="text"] {
-  width: 100%;
+  width: 75%;
+  max-width: 500px;
   box-sizing: border-box;
-  height: 2.5em;
+  height: 2.6em;
   text-align: center;
+  font-size: 1.2em;
 }
 header {
   z-index: 1;
@@ -290,6 +298,13 @@ a {
 }
 
 @media (max-width: 500px) {
+  .search-page > form > input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    height: 2.2em;
+    text-align: center;
+    font-size: 1.1em;
+  }
   .link-to-home {
     top: -6px;
   }

@@ -1,26 +1,17 @@
 import {
-  LOAD_POKEMONS,
   SET_LOADING,
   SET_POKEMONS_DETAILS,
   SELECT_POKEMON,
   SET_SEARCH_RESULTS,
   SET_ALL_POKEMONS,
+  SET_POKEMONS_LIST,
 } from "./actions";
 
 const initialState = { results: [] };
-export function reducePokemons(state = initialState, action) {
+export function reducePokemonsList(state = initialState, action) {
   switch (action.type) {
-    case LOAD_POKEMONS:
-      return action.pokemons;
-    default:
-      return state;
-  }
-}
-const initialSelectedPokemon = "";
-export function reducerSelectedPokemon(state = initialSelectedPokemon, action) {
-  switch (action.type) {
-    case SELECT_POKEMON:
-      return action.pokemon;
+    case SET_POKEMONS_LIST:
+      return action.list;
     default:
       return state;
   }

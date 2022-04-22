@@ -6,11 +6,19 @@ export function loadPokemons(pokemonListObj) {
   };
 }
 
-export const SELECT_POKEMON = "SELECT_POKEMON";
-export function selectPokemon(pokemon) {
+export const REQUEST_POKEMONS_LIST = "REQUEST_POKEMONS_LIST";
+export function requestPokemonsList(url) {
   return {
-    type: SELECT_POKEMON,
-    pokemon: pokemon,
+    type: REQUEST_POKEMONS_LIST,
+    url: url,
+  };
+}
+
+export const SET_POKEMONS_LIST = "SET_POKEMONS_LIST";
+export function setPokemonsList(list) {
+  return {
+    type: SET_POKEMONS_LIST,
+    list: list,
   };
 }
 
